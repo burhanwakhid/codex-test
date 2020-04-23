@@ -47,7 +47,5 @@ class ApiService{
     } catch (e) {
       throw Exception(e);
     }
-    
-    
   }  
 }

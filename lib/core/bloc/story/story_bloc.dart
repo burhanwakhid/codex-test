@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:codex_test/core/model/comment_model.dart';
 import 'package:codex_test/core/model/top_story_model.dart';
 import 'package:codex_test/core/service/api_service.dart';
 import 'package:meta/meta.dart';
@@ -20,8 +19,6 @@ class StoryBloc extends Bloc<StoryEvent, StoryState> {
   ) async* {
     if(event is LoadStory){
       yield* _mapLoadStoryState();
-    }else if(event is LoadComment){
-      yield* _mapLoadCommentState(event.id);
     }
   }
 
@@ -37,15 +34,4 @@ class StoryBloc extends Bloc<StoryEvent, StoryState> {
     }
   }
 
-  Stream<StoryState> _mapLoadCommentState(List id) async*{
-    try{
-      yield CommentLoading();
-
-      //call api
-      var story = await _api.fetchComment(id);
-      yield CommentLoaded(story);
-    }catch(e){
-      yield CommentNotLoaded(e.toString());
-    }
-  }
 }

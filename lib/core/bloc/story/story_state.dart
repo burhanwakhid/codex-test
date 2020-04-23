@@ -19,16 +19,3 @@ class StoryNotLoaded extends StoryState{
   StoryNotLoaded([this.errorMessage = ""]);
 }
 
-class CommentLoading extends StoryState{}
-
-class CommentLoaded extends StoryState{
-  final List<CommentModel> data;
-
-  CommentLoaded([this.data = const [] ]);
-}
-
-class CommentNotLoaded extends StoryState{
-  final String errorMessage;
-
-  CommentNotLoaded([this.errorMessage = ""]);
-}
