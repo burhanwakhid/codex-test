@@ -3,6 +3,7 @@ import 'package:codex_test/core/bloc/story/story_bloc.dart';
 import 'package:codex_test/core/model/top_story_model.dart';
 // import 'package:codex_test/layouts/view/coba_page.dart';
 import 'package:codex_test/layouts/view/detail_story_page.dart';
+import 'package:codex_test/layouts/view/list_item_page.dart';
 import 'package:codex_test/layouts/widget/list_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Top Story'),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+        // return ChangeNotifierProvider<CartModel>(
+        //   create: (_) => CartModel(),
+        //   child: ListItemPage(),
+        // );
+        return ListItemPage();
+        
+      }))),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
